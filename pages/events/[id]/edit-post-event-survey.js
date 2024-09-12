@@ -563,7 +563,7 @@ const router = useRouter()
     } 
 }
 
-console.log("event",event)
+console.log("form",eventForm)
   return (
     <>
       <Layout showStatusHeader={true}>
@@ -577,7 +577,7 @@ console.log("event",event)
         <div className="container mx-auto md:px-0 px-5 items-center">
 
 
-      <TopEventsInfo event={event} airs={true} selectedEventId={selectedEventId} handlePrint={handlePrint}/>
+      <TopEventsInfo event={event} airs={true} selectedEventId={selectedEventId} handlePrint={handlePrint} editPath={`/events/${event?.eventid || event?.id}/nys_cmp/edit`}/>
 
 
 {/*       <div className="flex my-5 justify-center">

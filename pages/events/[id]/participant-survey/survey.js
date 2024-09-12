@@ -107,20 +107,20 @@ const Survey = ({ data }) => {
     participantTestResourceKnowledge: "",
     participantPRePResourceKnowledge: "",
     participantPRePResourceKnowledgeOther: "",
-    interestHIV: "",
-    interestPrEP: "",
-    interestHepC: "",
-    interestImmigration: "",
-    interestScreens: "",
-    interestVaccines: "",
-    interestMentalHealth: "",
-    interestSubstance: "",
-    interestChronic: "",
-    participantVote: "",
+    interestHIV: false,
+    interestPrEP: false,
+    interestHepC: false,
+    interestImmigration: false,
+    interestScreens: false,
+    interestVaccines: false,
+    interestMentalHealth: false,
+    interestSubstance: false,
+    interestChronic: false,
+    participantVote: false,
     participantReferral: "",
     participantReferralOther: "",
     participantSuggestions: "",
-    interestOther: "",
+    interestOther: false,
     interestOtherText: "",
     participantBorough:""
   });
@@ -193,7 +193,7 @@ const Survey = ({ data }) => {
       <div>
         <div className="h-88 flex flex-col items-center grandient-violet">
           <img
-            src="/bh_logo.png"
+            src="/main/Black_Health_logo.svg"
             alt="black health data app management logo"
             width={400}
             className="pt-12"

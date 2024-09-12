@@ -16,7 +16,8 @@ const ZipCode = ({eventForm,setEventForm}) => {
 
   return (
     <div className="">
-      <h2 className="font-black">Zipcode where event will take place or majority of participants are expected to come from</h2>
+      <h2 className="font-black">Zipcode where event will take place or majority of participants are expected to come from
+      <span className='text-xl text-red-500 ml-2'>*required</span></h2>
     <div className="flex gap-x-5 items-center mt-7">
       <p>Zip code</p>
       <label>
@@ -38,7 +39,7 @@ const ZipCode = ({eventForm,setEventForm}) => {
         ...previous,
         [e.target.name]: Number(e.target.value),
       }))}}
-      defaultValue={eventForm?.eventZipCode!==0 ?eventForm?.eventZipCode : ""}
+      defaultValue={eventForm?.eventZipCode!==0 ? eventForm?.eventZipCode : 0}
       onKeyDown={isNumberKey}
       />
       </label>

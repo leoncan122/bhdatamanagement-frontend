@@ -34,6 +34,8 @@ ChartJS.register(
   ChartDataLabels
 );
 import useCopyToClipboard from "../../utils/useCopyToClipboard";
+import {reverseDate} from "../../utils/helpers";
+
 const GenderIdentityChart = ({ chartData,getHrefImage, selectedDate}) => {
   const [value, copy] = useCopyToClipboard()
   const [stadistics, setStadistics] = useState([])
@@ -67,6 +69,8 @@ const GenderIdentityChart = ({ chartData,getHrefImage, selectedDate}) => {
 
  let values = stadistics.filter(value => Number.isFinite(value));
  let maxValue = Math.max.apply(null, values);
+ let totalOfValues = values.reduce((a, b) => a + b, 0);
+
  const reversedDate  = {
   start: new Date(selectedDate.start).toLocaleDateString("en-US", {month: "numeric", day: "numeric", year: "numeric"}),
   finish: new Date(selectedDate.finish).toLocaleDateString("en-US", {month: "numeric", day: "numeric", year: "numeric"})
@@ -79,7 +83,7 @@ const GenderIdentityChart = ({ chartData,getHrefImage, selectedDate}) => {
       },
       title: {
         display: true,
-        text: `Gender identity tested for HIV NYS CMP ${reversedDate?.start}-${reversedDate?.finish}`,
+        text: `Gender identity tested for HIV NYS CMP ${reverseDate(selectedDate.start)}-${reverseDate(selectedDate.finish)}`,
         position: "top",
         font: {
           size: 18,
@@ -89,7 +93,7 @@ const GenderIdentityChart = ({ chartData,getHrefImage, selectedDate}) => {
         display: true,
         color: "#000",
         formatter: function (value, context) {
-          return value > 0 ? value : "";
+          return value > 0 ? `${((value * 100) / totalOfValues).toFixed(2)}%`   : "";
         },
         font: {
           weight: "bold",
